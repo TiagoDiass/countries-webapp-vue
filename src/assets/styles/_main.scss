@@ -1,0 +1,36 @@
+/* SCSS Modules */
+@import "variables";
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;700;800&display=swap');
+
+/* Component styles */
+@import 'components/header';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  color: $dark-text;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+  padding: 24px 5%;
+  margin-top: 50px;
+  background-color: $light-gray;
+}

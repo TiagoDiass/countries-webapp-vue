@@ -1,0 +1,31 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  padding: 16px 5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+
+    transition: border 0.15s;
+
+    &:hover {
+      border-bottom: 1.2px solid #000;
+    }
+  }
+}
