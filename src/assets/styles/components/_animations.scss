@@ -1,0 +1,63 @@
+@keyframes slide-in {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
+
+.slide-enter-active {
+    animation: slide-in 0.3s ease;
+}
+
+.slide-leave-active {
+    animation: slide-out 0.3s ease;
+}
+
+@keyframes flip-in {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes flip-out {
+    from {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+.flip-enter-active {
+    animation: flip-in 0.3s ease;
+}
+
+.flip-leave-active {
+    animation: flip-out 0.3s ease;
+}

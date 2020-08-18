@@ -18,14 +18,9 @@ header {
     border: none;
     outline: none;
     background-color: transparent;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
 
-    transition: border 0.15s;
-
-    &:hover {
-      border-bottom: 1.2px solid #000;
-    }
   }
 }
