@@ -12,14 +12,33 @@
         </select>
       </div>
     </div>
+
+    <div class="countries-container">
+      <Country v-for="(country, index) in countries" :key="index" :country="country"></Country>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+import Country from '../components/Country';
+
 export default {
   name: 'Home',
 
+  components: {
+    Country,
+  },
+
+  mounted() {
+    this.fetchCountries();
+  },
+
   computed: {
+    ...mapGetters({
+      countries: 'countries/getCountries',
+    }),
+
     regions() {
       return [
         {
@@ -44,6 +63,12 @@ export default {
         },
       ];
     },
+  },
+
+  methods: {
+    ...mapActions({
+      fetchCountries: 'countries/fetchCountries',
+    }),
   },
 };
 </script>
