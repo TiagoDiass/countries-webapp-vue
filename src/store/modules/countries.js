@@ -2,6 +2,7 @@ import Vue from 'vue';
 
 const initialState = () => ({
   countries: [],
+  country: {},
 });
 
 const state = initialState();
@@ -9,6 +10,10 @@ const state = initialState();
 const getters = {
   getCountries(state) {
     return state.countries;
+  },
+
+  getCurrentCountry(state) {
+    return state.country;
   },
 };
 
@@ -19,11 +24,22 @@ const actions = {
 
     commit('setCountries', response.data);
   },
+
+  async fetchCurrentCountry({ commit }, id) {
+    const url = `/v2/alpha/${id}`;
+    const response = await Vue.prototype.$httpClient.get(url);
+
+    commit('setCurrentCountry', response.data);
+  },
 };
 
 const mutations = {
   setCountries(state, data) {
     state.countries = data;
+  },
+
+  setCurrentCountry(state, data) {
+    state.country = data;
   },
 };
 

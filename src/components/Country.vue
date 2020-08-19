@@ -1,5 +1,5 @@
 <template>
-  <div class="country">
+  <div class="country" @click="navigateToDetail">
     <div class="country-flag" :style="`background-image: url(${country.flag})`"></div>
     <div class="country-data">
       <h3>{{ country.name }}</h3>
@@ -26,6 +26,14 @@
 export default {
   props: {
     country: Object,
+  },
+
+  methods: {
+    navigateToDetail() {
+      this.$router.push({
+        path: `countries/${this.country.alpha2Code}`,
+      });
+    },
   },
 };
 </script>

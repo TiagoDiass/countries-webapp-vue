@@ -10,6 +10,12 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+  {
+    path: '/countries/:id',
+    name: 'countryDetail',
+    props: true,
+    component: () => import('../views/CountryDetail'),
+  },
 ];
 
 const router = new VueRouter({
