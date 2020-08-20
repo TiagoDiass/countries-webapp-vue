@@ -30,7 +30,7 @@ export default {
     Country,
   },
 
-  mounted() {
+  beforeMount() {
     this.fetchCountries();
   },
 

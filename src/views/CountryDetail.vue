@@ -5,7 +5,7 @@
       Back
     </button>
 
-    <div class="country-detail">
+    <div class="country-details">
       <div class="country-flag" :style="`background-image: url(${country.flag});`"></div>
 
       <div class="country-area">
@@ -46,6 +46,13 @@
             </div>
 
             <div class="data-row">
+              <span class="label">Currencies: </span>
+              <span class="data" v-for="(currency, index) in country.currencies" :key="index">
+                {{ currency.code }}{{ index == country.currencies.length - 1 ? '.' : ', ' }}
+              </span>
+            </div>
+
+            <div class="data-row">
               <span class="label">Languages: </span>
               <span class="data" v-for="(language, index) in country.languages" :key="index">
                 {{ language.name }}{{ index == country.languages.length - 1 ? '.' : ', ' }}
@@ -67,7 +74,7 @@ export default {
     id: String,
   },
 
-  mounted() {
+  beforeMount() {
     this.fetchCountry(this.id);
   },
 
