@@ -2,7 +2,7 @@
   <header>
     <h1>Where in the world?</h1>
 
-    <button v-if="darkTheme" @click="darkTheme = false">
+    <button class="lightTheme" v-if="darkTheme" @click="darkTheme = false">
       <i class="fas fa-sun"></i>
       Light Theme
     </button>
@@ -18,5 +18,15 @@ export default {
   data: () => ({
     darkTheme: false,
   }),
+
+  watch: {
+    darkTheme(newValue) {
+      if (newValue === true) {
+        document.querySelector('#app').classList.add('dark');
+      } else {
+        document.querySelector('#app').classList.remove('dark');
+      }
+    },
+  },
 };
 </script>

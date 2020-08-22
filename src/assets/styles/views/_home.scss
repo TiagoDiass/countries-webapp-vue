@@ -1,4 +1,6 @@
 .home {
+    transition: background 0.3s, color 0.3s;
+
 
     .search-row {
         display: flex;
@@ -83,6 +85,38 @@
                     padding: 8px 4px;
                     width: 100%;
                 }
+            }
+        }
+    }
+}
+
+#app.dark .home {
+    .search-row {
+
+        .search-bar {
+            box-shadow: none;
+            background-color: $dark;
+
+            i {
+                color: $white;
+            }
+
+            input {
+                background-color: $dark;
+                color: $white;
+
+                &::placeholder {
+                    color: $white;
+                }
+            }
+        }
+
+        .region-filter {
+
+            select {
+                background-color: $dark;
+                color: $white;
+                box-shadow: none;
             }
         }
     }

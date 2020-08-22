@@ -65,3 +65,50 @@
         }
     }
 }
+
+@media (max-width: 990px) {
+    .country-detail {
+        .country-details {
+            flex-direction: column;
+            height: 700px;
+
+            .country-flag {
+                height: 50%;
+                width: 100%;
+            }
+
+            .country-area {
+                padding-left: 0;
+                padding-right: 0;
+                width: 100%;
+                height: 50%;
+
+                .country-data {
+                    margin-top: 0;
+                    display: flex;
+                    flex-direction: column;
+
+                    .right-box {
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+
+        margin-bottom: 3rem;
+    }
+}
+
+#app.dark .country-detail {
+    button.back-button {
+        background-color: $dark;
+        color: $white;
+        box-shadow: none;
+    }
+
+    .country-details {
+        .country-flag {
+            box-shadow: none;
+        }
+    }
+}
