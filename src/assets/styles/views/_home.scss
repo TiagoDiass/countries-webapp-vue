@@ -66,3 +66,24 @@
         flex-wrap: wrap;
     }
 }
+
+@media (max-width: 635px) {
+    .home {
+        .search-row {
+            flex-direction: column;
+
+            .search-bar {
+                margin-bottom: 0.7rem;
+                width: 100%;
+                padding: 10px 5px;
+            }
+
+            .region-filter {
+                select {
+                    padding: 8px 4px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

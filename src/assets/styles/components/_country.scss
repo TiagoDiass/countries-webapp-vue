@@ -40,3 +40,15 @@
         }
     }
 }
+
+@media (max-width: 1030px) {
+    .country {
+        width: 45%;
+    }
+}
+
+@media (max-width: 475px) {
+    .country {
+        width: 100%;
+    }
+}

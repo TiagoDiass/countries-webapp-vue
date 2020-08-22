@@ -24,3 +24,17 @@ header {
 
   }
 }
+
+@media (max-width: 445px) {
+  header {
+    flex-direction: column;
+
+    h1 {
+      align-self: flex-start;
+    }
+
+    button {
+      align-self: flex-end;
+    }
+  }
+}
