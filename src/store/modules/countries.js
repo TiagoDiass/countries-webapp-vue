@@ -41,9 +41,26 @@ const actions = {
 
   async fetchCountryByName({ commit }, name) {
     const url = `/v2/name/${name}`;
-    const response = await Vue.prototype.$httpClient(url);
+    let objectToReturn = {};
 
-    commit('setCountries', response.data);
+    await Vue.prototype
+      .$httpClient(url)
+      .then(response => {
+        commit('setCountries', response.data);
+        objectToReturn = {
+          status: 200,
+          message: 'Country found successfully',
+        };
+      })
+      .catch(() => {
+        commit('setCountries', []);
+        objectToReturn = {
+          status: 404,
+          message: 'Country not found',
+        };
+      });
+
+    return objectToReturn;
   },
 };
 

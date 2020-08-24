@@ -15,8 +15,11 @@
       </div>
     </div>
 
-    <div class="countries-container">
+    <div class="countries-container" v-if="countries.length">
       <Country v-for="(country, index) in countries" :key="index" :country="country"></Country>
+    </div>
+    <div class="error-container" v-else>
+      <h1>We haven't found any country with this name</h1>
     </div>
   </div>
 </template>
@@ -83,8 +86,32 @@ export default {
       this.fetchCountriesByRegion(this.region);
     },
 
-    searchByName() {
-      this.fetchCountryByName(this.countryName);
+    async searchByName() {
+      if (!this.countryName) {
+        return this.fetchCountries();
+      }
+
+      const response = await this.fetchCountryByName(this.countryName);
+
+      const Toast = this.$swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+
+      if (response.status == 404) {
+        Toast.fire({
+          icon: 'error',
+          title: response.message,
+        });
+      } else {
+        Toast.fire({
+          icon: 'success',
+          title: response.message,
+        });
+      }
     },
   },
 };

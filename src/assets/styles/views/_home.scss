@@ -67,6 +67,18 @@
         justify-content: space-between;
         flex-wrap: wrap;
     }
+
+    .error-container {
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-weight: 500;
+            opacity: 0.8;
+        }
+    }
 }
 
 @media (max-width: 635px) {
