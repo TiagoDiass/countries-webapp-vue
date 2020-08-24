@@ -38,6 +38,13 @@ const actions = {
 
     commit('setCountries', response.data);
   },
+
+  async fetchCountryByName({ commit }, name) {
+    const url = `/v2/name/${name}`;
+    const response = await Vue.prototype.$httpClient(url);
+
+    commit('setCountries', response.data);
+  },
 };
 
 const mutations = {

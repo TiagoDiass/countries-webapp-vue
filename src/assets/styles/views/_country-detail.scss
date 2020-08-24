@@ -11,6 +11,7 @@
         color: $dark-text;
         border-radius: 8px;
         box-shadow: 0 0 6px rgba($color: $dark-gray, $alpha: 0.4);
+        cursor: pointer;
 
         transition: box-shadow 0.15s, background 0.15s;
 

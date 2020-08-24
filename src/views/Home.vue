@@ -3,7 +3,7 @@
     <div class="search-row">
       <div class="search-bar">
         <i class="fas fa-search"></i>
-        <input type="text" placeholder="Search for a country..." />
+        <input v-model="countryName" type="text" placeholder="Search for a country..." @keydown.enter="searchByName" />
       </div>
 
       <!-- Filtro de Região -->
@@ -30,6 +30,7 @@ export default {
 
   data: () => ({
     region: null,
+    countryName: '',
   }),
 
   components: {
@@ -75,10 +76,15 @@ export default {
     ...mapActions({
       fetchCountries: 'countries/fetchCountries',
       fetchCountriesByRegion: 'countries/fetchCountriesByRegion',
+      fetchCountryByName: 'countries/fetchCountryByName',
     }),
 
     selectRegion() {
       this.fetchCountriesByRegion(this.region);
+    },
+
+    searchByName() {
+      this.fetchCountryByName(this.countryName);
     },
   },
 };
