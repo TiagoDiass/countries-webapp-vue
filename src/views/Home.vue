@@ -5,6 +5,8 @@
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Search for a country..." />
       </div>
+
+      <!-- Filtro de Região -->
       <div class="region-filter">
         <select name="region" id="region">
           <option :value="null" selected>Filter by Region</option>
