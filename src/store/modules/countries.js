@@ -49,14 +49,14 @@ const actions = {
         commit('setCountries', response.data);
         objectToReturn = {
           status: 200,
-          message: 'Country found successfully',
+          message: 'Success',
         };
       })
       .catch(() => {
         commit('setCountries', []);
         objectToReturn = {
           status: 404,
-          message: 'Country not found',
+          message: "We haven't found any country",
         };
       });
 

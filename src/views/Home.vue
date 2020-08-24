@@ -83,6 +83,7 @@ export default {
     }),
 
     selectRegion() {
+      this.countryName = '';
       this.fetchCountriesByRegion(this.region);
     },
 
@@ -92,6 +93,7 @@ export default {
       }
 
       const response = await this.fetchCountryByName(this.countryName);
+      this.region = null;
 
       const Toast = this.$swal.mixin({
         toast: true,

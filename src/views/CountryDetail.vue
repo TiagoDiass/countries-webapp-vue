@@ -60,8 +60,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Border countries here!! -->
       </div>
     </div>
   </div>
