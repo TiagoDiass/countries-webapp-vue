@@ -8,8 +8,8 @@
 
       <!-- Filtro de Região -->
       <div class="region-filter">
-        <select name="region" id="region">
-          <option :value="null" selected>Filter by Region</option>
+        <select name="region" id="region" @change="selectRegion" v-model="region">
+          <option :value="null">Filter by Region</option>
           <option v-for="region in regions" :key="region.value" :value="region.value">{{ region.placeholder }}</option>
         </select>
       </div>
@@ -28,6 +28,10 @@ import Country from '../components/Country';
 export default {
   name: 'Home',
 
+  data: () => ({
+    region: null,
+  }),
+
   components: {
     Country,
   },
@@ -45,23 +49,23 @@ export default {
       return [
         {
           placeholder: 'Africa',
-          value: 'Africa',
+          value: 'africa',
         },
         {
           placeholder: 'America',
-          value: 'America',
+          value: 'americas',
         },
         {
           placeholder: 'Asia',
-          value: 'Asia',
+          value: 'asia',
         },
         {
           placeholder: 'Europe',
-          value: 'Europe',
+          value: 'europe',
         },
         {
           placeholder: 'Oceania',
-          value: 'Oceania',
+          value: 'oceania',
         },
       ];
     },
@@ -70,7 +74,12 @@ export default {
   methods: {
     ...mapActions({
       fetchCountries: 'countries/fetchCountries',
+      fetchCountriesByRegion: 'countries/fetchCountriesByRegion',
     }),
+
+    selectRegion() {
+      this.fetchCountriesByRegion(this.region);
+    },
   },
 };
 </script>

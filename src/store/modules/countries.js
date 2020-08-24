@@ -31,6 +31,13 @@ const actions = {
 
     commit('setCurrentCountry', response.data);
   },
+
+  async fetchCountriesByRegion({ commit }, region) {
+    const url = `/v2/region/${region}`;
+    const response = await Vue.prototype.$httpClient.get(url);
+
+    commit('setCountries', response.data);
+  },
 };
 
 const mutations = {
