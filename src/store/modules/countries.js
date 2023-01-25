@@ -19,28 +19,28 @@ const getters = {
 
 const actions = {
   async fetchCountries({ commit }) {
-    const url = '/v2/all';
+    const url = '/all';
     const response = await Vue.prototype.$httpClient.get(url);
 
     commit('setCountries', response.data);
   },
 
   async fetchCurrentCountry({ commit }, id) {
-    const url = `/v2/alpha/${id}`;
+    const url = `/alpha/${id}`;
     const response = await Vue.prototype.$httpClient.get(url);
 
     commit('setCurrentCountry', response.data);
   },
 
   async fetchCountriesByRegion({ commit }, region) {
-    const url = `/v2/region/${region}`;
+    const url = `/region/${region}`;
     const response = await Vue.prototype.$httpClient.get(url);
 
     commit('setCountries', response.data);
   },
 
   async fetchCountryByName({ commit }, name) {
-    const url = `/v2/name/${name}`;
+    const url = `/name/${name}`;
     let objectToReturn = {};
 
     await Vue.prototype
